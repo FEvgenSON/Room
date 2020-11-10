@@ -8,5 +8,15 @@
     <fragment
         android:id="@+id/main"
         android:name="com.example.room.MainFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_main_to_owner"
+            app:destination="@id/owner" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/owner"
+        android:name="com.example.room.OwnerFragment"
+        tools:layout="@layout/fragment_owner" />
 </navigation>

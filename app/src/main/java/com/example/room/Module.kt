@@ -13,4 +13,5 @@ val Module = module {
         get<OwnerAndPetDataBase>().getDao()
     }
     viewModel { MainViewModel(get()) }
+    viewModel { (ownerId: Long) -> OwnerViewModel(ownerId, get()) }
 }

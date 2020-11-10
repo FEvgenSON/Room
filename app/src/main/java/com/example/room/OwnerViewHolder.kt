@@ -1,7 +1,9 @@
 package com.example.room
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.room.databinding.OwnerViewBinding
 import com.example.room.entity.Owner
@@ -30,6 +32,14 @@ class OwnerViewHolder private constructor(
         binding.cardView.setOnLongClickListener {
             viewModel.deleteOwner(owner)
             true
+        }
+        binding.cardView.setOnClickListener {
+            itemView.findNavController().navigate(
+                R.id.action_main_to_owner,
+                Bundle().apply {
+                    putLong("ownerId", owner.id)
+                }
+            )
         }
     }
 }
