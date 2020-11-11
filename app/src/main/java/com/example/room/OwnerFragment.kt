@@ -39,7 +39,7 @@ class OwnerFragment : Fragment() {
                 val pet = Pet(
                     name = nameEditText.text.toString(),
                     age = ageEditText.text.toString().toInt(),
-                    ownerId = viewModel.owner.value?.id!!
+                    ownerId = viewModel.ownerWithPets.value!!.owner.id
                 )
                 viewModel.addPet(pet)
                 val behavior = BottomSheetBehavior.from(bottomSheet)
@@ -47,14 +47,14 @@ class OwnerFragment : Fragment() {
             }
             val adapter = PetsAdapter(viewModel)
             recyclerView.adapter = adapter
-            viewModel.pets.observe(viewLifecycleOwner) {
-                adapter.submitList(it)
+            viewModel.ownerWithPets.observe(viewLifecycleOwner) {
+                adapter.submitList(it.pets)
             }
-            viewModel.owner.observe(viewLifecycleOwner) {
+            viewModel.ownerWithPets.observe(viewLifecycleOwner) { ownerWithPets ->
                 with(owner) {
-                    id.text = it.id.toString()
-                    name.text = it.name
-                    age.text = it.age.toString()
+                    id.text = ownerWithPets.owner.id.toString()
+                    name.text = ownerWithPets.owner.name
+                    age.text = ownerWithPets.owner.age.toString()
                 }
             }
         }
