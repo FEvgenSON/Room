@@ -26,8 +26,7 @@ class PetViewHolder private constructor(
     fun bind(pet: Pet) {
         binding.name.text = pet.name
         binding.age.text = pet.age.toString()
-        binding.id.text = pet.id.toString()
-        binding.ownerId.text = pet.ownerId.toString()
+        binding.id.text = pet.petId.toString()
         binding.cardView.setOnLongClickListener {
             viewModel.deletePet(pet)
             true

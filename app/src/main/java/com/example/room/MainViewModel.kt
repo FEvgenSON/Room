@@ -14,6 +14,7 @@ class MainViewModel(
 
     val owners = dao.getAllOwners()
 
+
     fun addOwner(owner: Owner) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {

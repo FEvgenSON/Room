@@ -19,7 +19,7 @@ class MainOwnerAdapter(
             override fun areItemsTheSame(
                 oldItem: Owner,
                 newItem: Owner
-            ): Boolean = oldItem.id == newItem.id
+            ): Boolean = oldItem.ownerId == newItem.ownerId
 
             override fun areContentsTheSame(
                 oldItem: Owner,
@@ -28,7 +28,7 @@ class MainOwnerAdapter(
         }
     }
 
-    override fun getItemId(position: Int): Long = getItem(position).id
+    override fun getItemId(position: Int): Long = getItem(position).ownerId
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

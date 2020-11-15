@@ -13,9 +13,6 @@ interface PetDao {
     @Query("SELECT * FROM Pet")
     fun getAllPets(): LiveData<List<Pet>>
 
-    @Query("SELECT * FROM Pet WHERE ownerId == :ownerId")
-    fun getPetsByOwnerId(ownerId: Long): LiveData<List<Pet>>
-
     @Insert
     suspend fun savePet(pet: Pet)
 

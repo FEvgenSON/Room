@@ -38,8 +38,7 @@ class OwnerFragment : Fragment() {
             save.setOnClickListener {
                 val pet = Pet(
                     name = nameEditText.text.toString(),
-                    age = ageEditText.text.toString().toInt(),
-                    ownerId = viewModel.ownerWithPets.value!!.owner.id
+                    age = ageEditText.text.toString().toInt()
                 )
                 viewModel.addPet(pet)
                 val behavior = BottomSheetBehavior.from(bottomSheet)
@@ -52,7 +51,7 @@ class OwnerFragment : Fragment() {
             }
             viewModel.ownerWithPets.observe(viewLifecycleOwner) { ownerWithPets ->
                 with(owner) {
-                    id.text = ownerWithPets.owner.id.toString()
+                    id.text = ownerWithPets.owner.ownerId.toString()
                     name.text = ownerWithPets.owner.name
                     age.text = ownerWithPets.owner.age.toString()
                 }

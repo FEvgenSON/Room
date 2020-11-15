@@ -19,7 +19,7 @@ class PetsAdapter(
             override fun areItemsTheSame(
                 oldItem: Pet,
                 newItem: Pet
-            ): Boolean = oldItem.id == newItem.id
+            ): Boolean = oldItem.petId == newItem.petId
 
             override fun areContentsTheSame(
                 oldItem: Pet,
@@ -28,7 +28,7 @@ class PetsAdapter(
         }
     }
 
-    override fun getItemId(position: Int): Long = getItem(position).id
+    override fun getItemId(position: Int): Long = getItem(position).petId
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

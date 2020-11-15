@@ -13,7 +13,7 @@ interface OwnerDao {
     @Query("SELECT * FROM Owner")
     fun getAllOwners(): LiveData<List<Owner>>
 
-    @Query("SELECT * FROM Owner WHERE id = :id")
+    @Query("SELECT * FROM Owner WHERE ownerId = :id")
     suspend fun getOwner(id: Long): Owner
 
     @Insert

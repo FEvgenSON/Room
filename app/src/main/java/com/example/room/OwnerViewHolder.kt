@@ -28,7 +28,7 @@ class OwnerViewHolder private constructor(
     fun bind(owner: Owner) {
         binding.name.text = owner.name
         binding.age.text = owner.age.toString()
-        binding.id.text = owner.id.toString()
+        binding.id.text = owner.ownerId.toString()
         binding.cardView.setOnLongClickListener {
             viewModel.deleteOwner(owner)
             true
@@ -37,7 +37,7 @@ class OwnerViewHolder private constructor(
             itemView.findNavController().navigate(
                 R.id.action_main_to_owner,
                 Bundle().apply {
-                    putLong("ownerId", owner.id)
+                    putLong("ownerId", owner.ownerId)
                 }
             )
         }

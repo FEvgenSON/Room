@@ -6,7 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Owner(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "age") val age: Int
+    @PrimaryKey(autoGenerate = true)
+    val ownerId: Long = 0,
+    @ColumnInfo(name = "name")
+    val name: String,
+    @ColumnInfo(name = "age")
+    val age: Int
 )
